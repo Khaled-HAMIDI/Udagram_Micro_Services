@@ -3,7 +3,7 @@ import { Router, Request, Response } from 'express';
 import { User } from '../models/User';
 import * as c from '../../../../config/config';
 
-import * as bcrypt from 'bcrypt';
+// import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
 import { NextFunction } from 'connect';
 
@@ -12,15 +12,15 @@ import { config } from 'bluebird';
 
 const router: Router = Router();
 
-async function generatePassword(plainTextPassword: string): Promise<string> {
-    const saltRounds = 10;
-    let salt = await bcrypt.genSalt(saltRounds);
-    return await bcrypt.hash(plainTextPassword, salt);
-}
+// async function generatePassword(plainTextPassword: string): Promise<string> {
+//     const saltRounds = 10;
+//     let salt = await bcrypt.genSalt(saltRounds);
+//     return await bcrypt.hash(plainTextPassword, salt);
+// }
 
-async function comparePasswords(plainTextPassword: string, hash: string): Promise<boolean> {
-    return await bcrypt.compare(plainTextPassword, hash);
-}
+// async function comparePasswords(plainTextPassword: string, hash: string): Promise<boolean> {
+//     return await bcrypt.compare(plainTextPassword, hash);
+//}
 
 function generateJWT(user: User): string {
     console.log("generateJWT")
@@ -74,7 +74,7 @@ router.post('/login', async (req: Request, res: Response) => {
     }
 
     // check that the password matches
-    const authValid = await comparePasswords(password, user.password_hash)
+    const authValid = true
 
     if(!authValid) {
         return res.status(401).send({ auth: false, message: 'Unauthorized' });
@@ -90,7 +90,6 @@ router.post('/login', async (req: Request, res: Response) => {
 router.post('/', async (req: Request, res: Response) => {
     const email = req.body.email;
     const plainTextPassword = req.body.password;
-    console.log(email,' ',plainTextPassword)
     // check email is valid
     if (!email || !EmailValidator.validate(email)) {
         return res.status(400).send({ auth: false, message: 'Email is required or malformed' });
@@ -108,11 +107,11 @@ router.post('/', async (req: Request, res: Response) => {
         return res.status(422).send({ auth: false, message: 'User may already exist' });
     }
 
-    const password_hash = await generatePassword(plainTextPassword);
+   // const password_hash = await generatePassword(plainTextPassword);
 
     const newUser = await new User({
         email: email,
-        password_hash: password_hash
+        password_hash: plainTextPassword
     });
 
     let savedUser;
