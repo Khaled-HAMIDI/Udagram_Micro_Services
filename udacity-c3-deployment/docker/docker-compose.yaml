@@ -23,7 +23,7 @@ services:
   backend-feed:
     image: khaleeed/udacity-restapi-feed
     volumes:
-      - /c/Users/KHALED/.aws
+      - C:\Users\KHALED\.aws
     environment:
       POSTGRESS_USERNAME: udagrammsdb
       POSTGRESS_PASSWORD: udagrammsdb 
