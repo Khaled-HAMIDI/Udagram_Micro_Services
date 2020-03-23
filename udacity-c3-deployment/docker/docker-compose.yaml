@@ -11,28 +11,28 @@ services:
   backend-user:
     image: khaleeed/udacity-restapi-user
     environment:
-      POSTGRESS_USERNAME: $POSTGRESS_USERNAME
-      POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
-      POSTGRESS_DB: $POSTGRESS_DB 
-      POSTGRESS_HOST: $POSTGRESS_HOST 
-      AWS_REGION: $AWS_REGION 
-      AWS_PROFILE: $AWS_PROFILE 
-      AWS_BUCKET: $AWS_BUCKET
-      JWT_SECRET: $JWT_SECRET
+      POSTGRESS_USERNAME: udagrammsdb
+      POSTGRESS_PASSWORD: udagrammsdb 
+      POSTGRESS_DB: udagrammsdb 
+      POSTGRESS_HOST: udagrammsdb.czsj8umx3swo.us-east-1.rds.amazonaws.com 
+      AWS_REGION: us-east-1 
+      AWS_PROFILE: default 
+      AWS_BUCKET: udagrammsbt
+      JWT_SECRET: helloWorld
       URL: "http://localhost:8100"
   backend-feed:
     image: khaleeed/udacity-restapi-feed
     volumes:
-      - $HOME/.aws:/root/.aws
+      - /c/Users/KHALED/.aws
     environment:
-      POSTGRESS_USERNAME: $POSTGRESS_USERNAME
-      POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
-      POSTGRESS_DB: $POSTGRESS_DB 
-      POSTGRESS_HOST: $POSTGRESS_HOST 
-      AWS_REGION: $AWS_REGION 
-      AWS_PROFILE: $AWS_PROFILE 
-      AWS_BUCKET: $AWS_BUCKET
-      JWT_SECRET: $JWT_SECRET
+      POSTGRESS_USERNAME: udagrammsdb
+      POSTGRESS_PASSWORD: udagrammsdb 
+      POSTGRESS_DB: udagrammsdb 
+      POSTGRESS_HOST: udagrammsdb.czsj8umx3swo.us-east-1.rds.amazonaws.com 
+      AWS_REGION: us-east-1 
+      AWS_PROFILE: default 
+      AWS_BUCKET: udagrammsbt
+      JWT_SECRET: helloWorld
       URL: "http://localhost:8100"
   frontend:
     image: khaleeed/udacity-frontend:local
