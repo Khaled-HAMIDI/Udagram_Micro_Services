@@ -22,8 +22,8 @@ services:
       URL: "http://localhost:8100"
   backend-feed:
     image: khaleeed/udacity-restapi-feed
-    volumes:
-      - C:\Users\KHALED\.aws
+    volumes: 
+     - $HOME\.aws
     environment:
       POSTGRESS_USERNAME: udagrammsdb
       POSTGRESS_PASSWORD: udagrammsdb 
