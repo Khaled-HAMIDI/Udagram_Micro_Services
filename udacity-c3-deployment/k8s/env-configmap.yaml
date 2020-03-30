@@ -4,7 +4,7 @@ data:
   AWS_BUCKET: udagrammsbt
   AWS_PROFILE: default
   AWS_REGION: us-east-1
-  JWT_SECRET: ___INSERT_JWT_SECRET___
+  JWT_SECRET: helloWorld
   POSTGRESS_DB: udagrammsdb
   POSTGRESS_HOST: udagrammsdb.czsj8umx3swo.us-east-1.rds.amazonaws.com
   URL: http://localhost:8100  
