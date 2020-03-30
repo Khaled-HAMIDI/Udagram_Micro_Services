@@ -1,11 +1,13 @@
 # Udagram Microservices : Udacity Nano degree project
-Links to Docker-hub images: 
-  - Feed: https://hub.docker.com/repository/docker/habiballaah/udacity-restapi-feed
-  - User: https://hub.docker.com/repository/docker/habiballaah/udacity-restapi-user 
-  - Frontend: https://hub.docker.com/repository/docker/habiballaah/udacity-frontend 
-  - ReverseProxy: https://hub.docker.com/repository/docker/habiballaah/reverseproxy
+Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.
 
-Screenshots are located in the root of the repository.
+
+Links to Docker-hub images: 
+  - Feed: https://hub.docker.com/repository/docker/khaleeed/udacity-restapi-feed
+  - User: https://hub.docker.com/repository/docker/khaleeed/udacity-restapi-user 
+  - Frontend: https://hub.docker.com/repository/docker/khaleeed/udacity-frontend 
+  - ReverseProxy: https://hub.docker.com/repository/docker/khaleeed/reverseproxy
+
 
 Instructions: 
   - Build the images: 
@@ -17,7 +19,7 @@ Instructions:
   - Run the containers:
       - docker-compose up
     
-  - Create the infrastructure (kubernetes cluster) using the AWS management console,I used this article to create it:https://eksctl.io/usage-creating-and-managing-clusters/: 
+  - Create the infrastructure (kubernetes cluster) using the AWS management console,I used this article to create it(https://medium.com/faun/create-your-first-application-on-aws-eks-kubernetes-cluster-874ee9681293)
 
   - Apply confiMap and secrets: 
     - kubectl apply -f env-configmap.yaml
@@ -38,5 +40,4 @@ Instructions:
   
   - Apply port forwaring:
     - kubectl port-forward service/reverseproxy 8080:8080
-    
     
